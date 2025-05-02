@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Alvin Kimani Portfolio - Projects</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url('image.png.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 25px 20px;
+      text-align: center;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #a0c4ff;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .project-list {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      width: 100%;
+      color: #333;
+    }
+
+    .project-list h2 {
+      margin-bottom: 25px;
+      font-size: 2rem;
+      color: #333;
+    }
+
+    .project-list ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .project-list li {
+      margin: 15px 0;
+    }
+
+    .project-list a {
+      text-decoration: none;
+      color: #667eea;
+      font-size: 1.1em;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .project-list a:hover {
+      color: #764ba2;
+    }
+
+    @media (max-width: 600px) {
+      .project-list {
+        padding: 25px;
+      }
+
+      .project-list h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h2>My Projects</h2>
+    <nav>
+      <a href="portfolio.html">Home</a>
+      <a href="aboutpage.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="project-list">
+      <h2>View Projects Available</h2>
+      <ul>
+        <li><a href="project.html">SPLMS - Smart Learning Platform</a></li>
+        <li><a href="#">Project 2 - Coming Soon</a></li>
+        <li><a href="#">Project 3 - Coming Soon</a></li>
+      </ul>
+    </div>
+  </main>
+
+</body>
+</html>

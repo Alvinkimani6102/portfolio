@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Gallery</title>
+    <style>
+        body {
+            background-color: #001f3f;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .gallery {
+            display: none;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .gallery img {
+            height: 250px;
+            width: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #fff;
+        }
+
+        #passwordModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            background-color: rgba(0,0,0,0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        #passwordModal form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            color: #000;
+            text-align: center;
+        }
+
+        #passwordModal input[type="password"] {
+            padding: 10px;
+            width: 200px;
+            margin: 10px 0;
+        }
+
+        #passwordModal button {
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="passwordModal">
+    <form onsubmit="return checkPassword(event)">
+        <h2>Enter Password to Access Personal Gallery</h2>
+        <input type="password" id="galleryPassword" placeholder="Password" required />
+        <br>
+        <button type="submit">Enter</button>
+        <p id="errorMsg" style="color:red;"></p>
+    </form>
+</div>
+
+<h1>Personal Gallery</h1>
+
+<div class="gallery" id="personalGallery">
+    <img src="car.png.webp" alt="Personal Image 1">
+    <img src="it.jpeg" alt="Personal Image 2">
+    <img src="lms 1.jpg" alt="Personal Image 3">
+</div>
+
+<script>
+    const correctPassword = "Alvin123#";
+
+    function checkPassword(event) {
+        event.preventDefault();
+        const entered = document.getElementById("galleryPassword").value;
+        if (entered === correctPassword) {
+            document.getElementById("passwordModal").style.display = "none";
+            document.getElementById("personalGallery").style.display = "flex";
+        } else {
+            document.getElementById("errorMsg").innerText = "Incorrect password!";
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio Login</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: url('logo.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      animation: zoom 2s infinite alternate ease-in-out;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.5); /* dark overlay */
+      z-index: 0;
+    }
+
+    @keyframes zoom {
+      0% { background-size: 100%; }
+      100% { background-size: 110%; }
+    }
+
+    .login-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 360px;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      text-align: center;
+      z-index: 1;
+    }
+
+    .login-container h2 {
+      margin-bottom: 10px;
+    }
+
+    .login-container label {
+      display: block;
+      text-align: left;
+      font-weight: bold;
+      margin-bottom: 5px;
+      margin-top: 10px;
+    }
+
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .login-container button:hover {
+      background-color: #45a049;
+    }
+
+    #message {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .show-password {
+      text-align: left;
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 400px) {
+      .login-container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <form id="loginForm" onsubmit="return login()">
+      <h2>WEBSITE PORTFOLIO</h2>
+      <h3>By Alvin Kimani</h3>
+
+      <label for="username">Username</label>
+      <input type="text" id="username" placeholder="Enter username" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter your password" required>
+
+      <div class="show-password">
+        <input type="checkbox" id="showPassword" onclick="togglePassword()"> Show Password
+      </div>
+
+      <button type="submit">Login</button>
+
+      <p id="message" style="color: red;"></p>
+    </form>
+  </div>
+
+  <script>
+    function login() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const message = document.getElementById("message");
+
+      const fixedUsername = "Alvin";
+      const fixedPassword = "Alvin123";
+
+      if (username === fixedUsername && password === fixedPassword) {
+        message.style.color = "green";
+        message.innerText = "Login successful! Redirecting...";
+        setTimeout(() => {
+          window.location.href = "portfolio.html";
+        }, 1000);
+      } else {
+        message.innerText = "Invalid credentials.";
+        message.style.color = "red";
+      }
+
+      return false;
+    }
+
+    function togglePassword() {
+      const passwordField = document.getElementById("password");
+      passwordField.type = passwordField.type === "password" ? "text" : "password";
+    }
+  </script>
+</body>
+</html>
