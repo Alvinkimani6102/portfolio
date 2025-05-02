@@ -1,101 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Personal Gallery</title>
-    <style>
-        body {
-            background-color: #001f3f;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
-        }
+  <meta charset="UTF-8">
+  <title>Personal Gallery</title>
+  <style>
+    body {
+      background-color: #001f3f;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
 
-        h1 {
-            margin-bottom: 30px;
-        }
+    h1 {
+      margin-bottom: 30px;
+    }
 
-        .gallery {
-            display: none;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
+    .gallery {
+      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
 
-        .gallery img {
-            height: 250px;
-            width: 250px;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 2px solid #fff;
-        }
+    .gallery img {
+      height: 250px;
+      width: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid #fff;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
 
-        #passwordModal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            width: 100vw;
-            background-color: rgba(0,0,0,0.85);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
 
-        #passwordModal form {
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            color: #000;
-            text-align: center;
-        }
+    #passwordModal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background-color: rgba(0,0,0,0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
 
-        #passwordModal input[type="password"] {
-            padding: 10px;
-            width: 200px;
-            margin: 10px 0;
-        }
+    #passwordModal form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      color: #000;
+      text-align: center;
+    }
 
-        #passwordModal button {
-            padding: 10px 20px;
-        }
-    </style>
+    #passwordModal input[type="password"] {
+      padding: 10px;
+      width: 200px;
+      margin: 10px 0;
+    }
+
+    #passwordModal button {
+      padding: 10px 20px;
+    }
+
+    #lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9998;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    #lightbox img {
+      max-width: 90%;
+      max-height: 70%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #fff;
+      margin-bottom: 10px;
+    }
+
+    #lightbox p {
+      color: #fff;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .lightbox-controls {
+      display: flex;
+      gap: 20px;
+    }
+
+    .lightbox-controls button {
+      background-color: #0074D9;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .lightbox-controls button:hover {
+      background-color: #005fa3;
+    }
+  </style>
 </head>
 <body>
 
 <div id="passwordModal">
-    <form onsubmit="return checkPassword(event)">
-        <h2>Enter Password to Access Personal Gallery</h2>
-        <input type="password" id="galleryPassword" placeholder="Password" required />
-        <br>
-        <button type="submit">Enter</button>
-        <p id="errorMsg" style="color:red;"></p>
-    </form>
+  <form onsubmit="return checkPassword(event)">
+    <h2>Enter Password to Access Personal Gallery</h2>
+    <input type="password" id="galleryPassword" placeholder="Password" required />
+    <br>
+    <button type="submit">Enter</button>
+    <p id="errorMsg" style="color:red;"></p>
+  </form>
 </div>
 
 <h1>Personal Gallery</h1>
 
 <div class="gallery" id="personalGallery">
-    <img src="car.png.webp" alt="Personal Image 1">
-    <img src="it.jpeg" alt="Personal Image 2">
-    <img src="lms 1.jpg" alt="Personal Image 3">
+  <img src="IMG_20241118_111412_866.jpg" alt="Personal Image 1">
+  <img src="IMG_20250402_152558_073.jpg"Personal Image 2">
+  <img src="IMG_20250402_152512_814.jpg" alt="Personal Image 3">
+  <img src="IMG_20250402_152558_073.jpg" alt="Personal Image 1">
+  <img src="IMG_20241118_111748_243.jpg" alt="Personal Image 2">
+  <img src="IMG_20250402_152626_242.jpg" alt="Personal Image 3">
+  <img src="IMG_20250119_170403_073.jpg" alt="Personal Image 1">
+  <img src="IMG_20250209_161748_567-1.jpg" alt="Personal Image 2">
+  <img src="IMG_20250402_152542_712.jpg" alt="Personal Image 3">
+  <img src="IMG_20250402_152606_978.jpg" alt="Personal Image 1">
+  <img src="IMG-20250424-WA0003.jpg" alt="Personal Image 2">
+  <img src="IMG-20250424-WA0018.jpg"Personal Image 3">
+  <img src="IMG_20241118_111657_215.jpg" alt="Personal Image 1">
+  <img src="IMG_20250209_161750_357-1.jpg" alt="Personal Image 2">
+  <img src="IMG_20250402_152547_593.jpg" alt="Personal Image 3">
+  <img src="IMG_20250209_161806_130-1.jpg" alt="Personal Image 1">
+  <img src="IMG-20250424-WA0004.jpg" alt="Personal Image 2">
+  <img src="IMG-20250424-WA0020.jpg" alt="Personal Image 3">
+  <img src="IMG_20250402_152552_068.jpg" alt="Personal Image 1">
+  <img src="IMG_20250402_152622_590.jpg" alt="Personal Image 2">
+  <img src="IMG-20250424-WA0010.jpg" alt="Personal Image 3">
+  <img src="IMG-20250424-WA0022.jpg" alt="Personal Image 1">
+  <img src="IMG-20250424-WA0014.jpg" alt="Personal Image 2">
+  
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox">
+  <img id="lightbox-img" src="" alt="Full View" />
+  <p id="lightbox-caption"></p>
+  <div class="lightbox-controls">
+    <button onclick="showPrev()">Previous</button>
+    <button onclick="closeLightbox()">Close</button>
+    <button onclick="showNext()">Next</button>
+  </div>
 </div>
 
 <script>
-    const correctPassword = "Alvin123#";
+  const correctPassword = "Alvin123.#";
 
-    function checkPassword(event) {
-        event.preventDefault();
-        const entered = document.getElementById("galleryPassword").value;
-        if (entered === correctPassword) {
-            document.getElementById("passwordModal").style.display = "none";
-            document.getElementById("personalGallery").style.display = "flex";
-        } else {
-            document.getElementById("errorMsg").innerText = "Incorrect password!";
-        }
+  function checkPassword(event) {
+    event.preventDefault();
+    const entered = document.getElementById("galleryPassword").value;
+    if (entered === correctPassword) {
+      document.getElementById("passwordModal").style.display = "none";
+      document.getElementById("personalGallery").style.display = "flex";
+    } else {
+      document.getElementById("errorMsg").innerText = "Incorrect password!";
     }
+  }
+
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const lightboxCaption = document.getElementById("lightbox-caption");
+
+  let currentIndex = 0;
+  const images = Array.from(document.querySelectorAll(".gallery img"));
+
+  images.forEach((img, index) => {
+    img.addEventListener("click", () => {
+      currentIndex = index;
+      showImage(currentIndex);
+    });
+  });
+
+  function showImage(index) {
+    if (index < 0 || index >= images.length) return;
+    lightboxImg.src = images[index].src;
+    lightboxCaption.innerText = images[index].alt || '';
+    lightbox.style.display = "flex";
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage(currentIndex);
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage(currentIndex);
+  }
+
+  function closeLightbox() {
+    lightbox.style.display = "none";
+  }
 </script>
 
 </body>

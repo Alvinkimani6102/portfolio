@@ -9,62 +9,62 @@
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
       margin: 0;
       padding: 0;
-      min-height: 100vh;
+      height: 100%;
+      width: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
       background: url('logo.png') no-repeat center center fixed;
       background-size: cover;
-      font-family: Arial, sans-serif;
-      animation: zoom 2s infinite alternate ease-in-out;
       position: relative;
     }
 
     body::before {
       content: "";
       position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.5); /* dark overlay */
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5);
       z-index: 0;
     }
 
-    @keyframes zoom {
-      0% { background-size: 100%; }
-      100% { background-size: 110%; }
+    .login-container {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
     }
 
-    .login-container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 90%;
+    form {
+      width: 100%;
       max-width: 360px;
+      background: rgba(255, 255, 255, 0.95);
       padding: 30px;
-      background-color: rgba(255, 255, 255, 0.95);
       border-radius: 15px;
       box-shadow: 0 0 20px rgba(0,0,0,0.3);
       text-align: center;
-      z-index: 1;
     }
 
-    .login-container h2 {
-      margin-bottom: 10px;
+    h2, h3 {
+      margin: 0 0 15px;
     }
 
-    .login-container label {
+    label {
       display: block;
       text-align: left;
       font-weight: bold;
-      margin-bottom: 5px;
-      margin-top: 10px;
+      margin: 10px 0 5px;
     }
 
-    .login-container input[type="text"],
-    .login-container input[type="password"] {
+    input[type="text"],
+    input[type="password"] {
       width: 100%;
       padding: 10px;
       margin-bottom: 10px;
@@ -72,9 +72,19 @@
       border-radius: 8px;
     }
 
-    .login-container button {
+    .show-password {
+      text-align: left;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .show-password input {
+      margin-right: 5px;
+    }
+
+    button {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       background-color: #4CAF50;
       border: none;
       color: white;
@@ -84,25 +94,14 @@
       font-size: 16px;
     }
 
-    .login-container button:hover {
+    button:hover {
       background-color: #45a049;
     }
 
     #message {
       margin-top: 10px;
       font-weight: bold;
-    }
-
-    .show-password {
-      text-align: left;
-      margin-top: 5px;
-      font-size: 14px;
-    }
-
-    @media (max-width: 400px) {
-      .login-container {
-        padding: 20px;
-      }
+      color: red;
     }
   </style>
 </head>
@@ -119,12 +118,13 @@
       <input type="password" id="password" placeholder="Enter your password" required>
 
       <div class="show-password">
-        <input type="checkbox" id="showPassword" onclick="togglePassword()"> Show Password
+        <input type="checkbox" id="showPassword" onclick="togglePassword()"> 
+        <label for="showPassword">Show Password</label>
       </div>
 
       <button type="submit">Login</button>
 
-      <p id="message" style="color: red;"></p>
+      <p id="message"></p>
     </form>
   </div>
 
