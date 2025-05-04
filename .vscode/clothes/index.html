@@ -1,0 +1,88 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login | David Fashion & Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to right, #6a0dad, #9b59b6);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+    .login-container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 20px;
+      font-size: 2.5rem;
+    }
+    input {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #ffffff;
+      color: #6a0dad;
+      border: none;
+      font-weight: bold;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover { background: #f2eafa; }
+    .footer-text {
+      margin-top: 15px;
+      font-size: 0.85rem;
+      color: #eee;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>David Fashion & Design</h1>
+    <input type="email" id="email" placeholder="Enter your email" />
+    <button onclick="login()">Login</button>
+    <div class="footer-text">Only admins can add products. Users can browse and shop.</div>
+  </div>
+
+  <script>
+    function login() {
+      const email = document.getElementById('email').value.trim().toLowerCase();
+      if (!email) return alert("Please enter your email");
+
+      localStorage.setItem('email', email);
+
+      if (email === 'kimanialvin2003@gmail.com') {
+        localStorage.setItem('isAdmin', 'true');
+        window.location.href = "admin.html";
+      } else {
+        localStorage.setItem('isAdmin', 'false');
+        window.location.href = "user.html";
+      }
+    }
+  </script>
+</body>
+</html>

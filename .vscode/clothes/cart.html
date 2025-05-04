@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cart | David Fashion & Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to right, #9b59b6, #6a0dad);
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      margin: 0;
+    }
+
+    header button {
+      background: #ffffff;
+      color: #6a0dad;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    header button:hover {
+      background: #f2eafa;
+    }
+
+    .cart-container {
+      background: white;
+      color: #333;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 0;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .cart-item img {
+      width: 100px;
+      border-radius: 5px;
+    }
+
+    .cart-item-details {
+      flex: 1;
+      padding: 0 20px;
+    }
+
+    .cart-item h3 {
+      margin: 0 0 5px;
+    }
+
+    .remove-btn {
+      background: #e74c3c;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .remove-btn:hover {
+      background: #c0392b;
+    }
+
+    .total {
+      font-weight: bold;
+      text-align: right;
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Your Cart</h1>
+    <div>
+      <button onclick="goBack()">← Back to Shop</button>
+      <button onclick="clearCart()">Clear Cart</button>
+    </div>
+  </header>
+
+  <div class="cart-container" id="cartContainer">
+    <!-- Cart items will be displayed here -->
+  </div>
+
+  <script>
+    function goBack() {
+      window.location.href = "user.html";
+    }
+
+    function clearCart() {
+      localStorage.setItem("cart", JSON.stringify([]));
+      loadCart();
+    }
+
+    function removeItem(index) {
+      let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      loadCart();
+    }
+
+    function loadCart() {
+      const cartContainer = document.getElementById("cartContainer");
+      let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      cartContainer.innerHTML = "";
+
+      if (cart.length === 0) {
+        cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+        return;
+      }
+
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        total += item.price;
+
+        const div = document.createElement("div");
+        div.className = "cart-item";
+        div.innerHTML = `
+          <img src="${item.image}" alt="${item.name}">
+          <div class="cart-item-details">
+            <h3>${item.name}</h3>
+            <p>Size: ${item.size}</p>
+            <p>Price: $${item.price}</p>
+          </div>
+          <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+        `;
+        cartContainer.appendChild(div);
+      });
+
+      const totalEl = document.createElement("div");
+      totalEl.className = "total";
+      totalEl.textContent = `Total: $${total}`;
+      cartContainer.appendChild(totalEl);
+    }
+
+    loadCart();
+  </script>
+</body>
+</html>

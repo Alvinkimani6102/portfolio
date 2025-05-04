@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>User | David Fashion & Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to right, #6a0dad, #9b59b6);
+      min-height: 100vh;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      margin: 0;
+    }
+
+    header button {
+      background: #ffffff;
+      color: #6a0dad;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    header button:hover {
+      background: #f2eafa;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .product-card:hover {
+      transform: scale(1.02);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .product-card h3 {
+      margin: 15px 0 5px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .product-card p {
+      margin: 5px 0;
+      color: #777;
+    }
+
+    .product-card button {
+      background: #000;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .product-card button:hover {
+      background: #333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to David Fashion & Design</h1>
+    <div>
+      <button onclick="viewCart()">🛒 Cart (<span id="cartCount">0</span>)</button>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </header>
+
+  <div class="product-grid" id="productGrid"></div>
+
+  <script>
+    function logout() {
+      localStorage.clear();
+      window.location.href = "login.html";
+    }
+
+    function viewCart() {
+      window.location.href = "cart.html";
+    }
+
+    function initializeLocalStorage() {
+      if (!localStorage.getItem("products")) {
+        const sampleProducts = [
+          { name: "T-shirt", size: "M", price: 25, description: "A stylish cotton T-shirt.", image: "https://via.placeholder.com/250x200" },
+          { name: "Jeans", size: "L", price: 45, description: "Comfortable blue jeans.", image: "https://via.placeholder.com/250x200" }
+        ];
+        localStorage.setItem("products", JSON.stringify(sampleProducts));
+      }
+
+      if (!localStorage.getItem("cart")) {
+        localStorage.setItem("cart", JSON.stringify([]));
+      }
+    }
+
+    function displayProducts() {
+      const products = JSON.parse(localStorage.getItem("products") || "[]");
+      const grid = document.getElementById("productGrid");
+      grid.innerHTML = "";
+
+      if (products.length === 0) {
+        grid.innerHTML = "<p>No products available</p>";
+        return;
+      }
+
+      products.forEach((p, i) => {
+        const card = document.createElement("div");
+        card.className = "product-card";
+        card.innerHTML = `
+          <img src="${p.image}" alt="${p.name}">
+          <h3>${p.name}</h3>
+          <p>Size: ${p.size}</p>
+          <p>Price: $${p.price}</p>
+          <p>${p.description}</p>
+          <button class="add-btn" data-index="${i}">Add to Cart</button>
+        `;
+        grid.appendChild(card);
+      });
+
+      // Attach event listeners after rendering
+      document.querySelectorAll(".add-btn").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          const index = e.target.getAttribute("data-index");
+          addToCart(parseInt(index));
+        });
+      });
+    }
+
+    function addToCart(index) {
+      const products = JSON.parse(localStorage.getItem("products") || "[]");
+      let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+      if (!products[index]) {
+        console.error("Product not found at index", index);
+        return;
+      }
+
+      cart.push(products[index]);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert("Product added to cart!");
+      updateCartButton();
+    }
+
+    function updateCartButton() {
+      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      document.getElementById("cartCount").textContent = cart.length;
+    }
+
+    // Initialize and render
+    initializeLocalStorage();
+    displayProducts();
+    updateCartButton();
+  </script>
+</body>
+</html>
