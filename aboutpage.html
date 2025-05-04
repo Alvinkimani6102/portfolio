@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
 
   <style>
     * {
@@ -18,9 +18,12 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right,#343437,  #f2eff4);
+      background: linear-gradient(to right, #343437, #f2eff4);
       color: #333;
       line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     .container {
@@ -42,7 +45,7 @@
     .about-image img {
       max-width: 250px;
       border-radius: 50%;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease;
     }
 
@@ -81,11 +84,36 @@
       color: #388e3c;
     }
 
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #2b2b2b;
+      color: #fff;
+      margin-top: auto;
+    }
+
+    .download-btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #323ec5;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: background 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .download-btn:hover {
+      background: #1d2bbf;
+    }
+
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
         text-align: center;
       }
+
       .about-content {
         padding-top: 20px;
       }
@@ -114,6 +142,11 @@
       </div>
     </div>
   </div>
+
+  <footer>
+    <p>Download my CV</p>
+    <a href="alvinkimani cv.pdf" download class="download-btn">Download CV</a>
+  </footer>
 
 </body>
 </html>
