@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Services & Solutions - Alvin Kimani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #343437, #f2eff4);
+      color: #333;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Navigation Header */
+    header {
+      background: #2b2b2b;
+      padding: 15px 40px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: #ccc;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: #fff;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+      flex: 1;
+    }
+
+    /* Section Title Header (High Visibility) */
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      background: #ffffff;
+      padding: 35px 25px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      border-left: 6px solid #323ec5;
+    }
+
+    .section-title h1 {
+      font-size: 2.6rem;
+      color: #1a1a1a;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #323ec5;
+      font-weight: 600;
+      font-size: 1.15rem;
+      letter-spacing: 0.2px;
+    }
+
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: #ffffff;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      border-top: 4px solid #323ec5;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(50, 62, 197, 0.18);
+    }
+
+    .icon-box {
+      width: 60px;
+      height: 60px;
+      background: rgba(50, 62, 197, 0.1);
+      color: #323ec5;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 1.3rem;
+      color: #2b2b2b;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      background: #f0f2fd;
+      color: #323ec5;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    /* CTA Callout */
+    .cta-banner {
+      background: #2b2b2b;
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+      border-radius: 12px;
+      margin-top: 50px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .cta-banner h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .cta-banner p {
+      color: #ddd;
+      margin-bottom: 20px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: #323ec5;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background: #1d2bbf;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #2b2b2b;
+      color: #fff;
+      margin-top: 50px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #323ec5;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: background 0.3s ease;
+      margin: 5px;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .download-btn:hover {
+      background: #1d2bbf;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      .section-title h1 {
+        font-size: 2rem;
+      }
+      .section-title p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header>
+    <nav>
+      <a href="portfolio.html" class="logo">Alvin Kimani</a>
+      <ul class="nav-links">
+        <li><a href="portfolio.html">Home</a></li>
+        <li><a href="aboutpage.html">About</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="project list.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="section-title">
+      <h1>Services &amp; Technical Solutions</h1>
+      <p>Web Development, Custom Systems, Network Infrastructure &amp; Security</p>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- Service 1 -->
+      <div class="service-card">
+        <div class="icon-box">
+          <i class="fas fa-laptop-code"></i>
+        </div>
+        <h3>Full-Stack Web Development</h3>
+        <p>Designing and engineering fast, responsive, and secure web applications. From intuitive front-end interfaces built with Next.js and React to server-side business logic, I build scalable web platforms engineered for performance.</p>
+        <div class="tags">
+          <span class="tag">JavaScript</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">React / Next.js</span>
+          <span class="tag">HTML5/CSS3</span>
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="service-card">
+        <div class="icon-box">
+          <i class="fas fa-server"></i>
+        </div>
+        <h3>Backend Engineering &amp; Python Logic</h3>
+        <p>Developing resilient, secure backends and microservices. I build structured RESTful APIs, server architectures, and automated background tasks using Python and Node.js tailored for web systems.</p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Django</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">REST APIs</span>
+        </div>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="service-card">
+        <div class="icon-box">
+          <i class="fas fa-database"></i>
+        </div>
+        <h3>Database Architecture &amp; Management</h3>
+        <p>Architecting structured NoSQL and relational database management systems. I design MongoDB document models, write complex aggregation pipelines, handle indexing, and implement relational SQL schemas for reliable data handling.</p>
+        <div class="tags">
+          <span class="tag">MongoDB</span>
+          <span class="tag">Mongoose</span>
+          <span class="tag">SQL / PostgreSQL</span>
+          <span class="tag">Schema Design</span>
+        </div>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="service-card">
+        <div class="icon-box">
+          <i class="fas fa-network-wired"></i>
+        </div>
+        <h3>Network Administration &amp; Infrastructure</h3>
+        <p>Configuring and maintaining local and enterprise network infrastructure. I specialize in network topology deployment, LAN/WAN routing, IP addressing, router/switch configuration, bandwidth management, and system hardware troubleshooting.</p>
+        <div class="tags">
+          <span class="tag">Network Topology</span>
+          <span class="tag">LAN/WAN</span>
+          <span class="tag">Router &amp; Switch Config</span>
+          <span class="tag">Hardware Admin</span>
+        </div>
+      </div>
+
+      <!-- Service 5 -->
+      <div class="service-card">
+        <div class="icon-box">
+          <i class="fas fa-video"></i>
+        </div>
+        <h3>CCTV &amp; Security Systems Management</h3>
+        <p>Designing and deploying IP and analog CCTV camera networks with Video Management Software (VMS). I configure multi-display monitoring setups, remote stream viewing, NVR/DVR storage management, and hardware maintenance.</p>
+        <div class="tags">
+          <span class="tag">CCTV Integration</span>
+          <span class="tag">VMS Systems</span>
+          <span class="tag">IP Cameras</span>
+          <span class="tag">NVR/DVR Config</span>
+        </div>
+      </div>
+
+      <!-- Service 6 -->
+      <div class="service-card">
+        <div class="icon-box">
+          <i class="fas fa-cogs"></i>
+        </div>
+        <h3>Custom Management Systems &amp; LMS</h3>
+        <p>Engineering custom management software, continuous workflow engines, Learning Management Systems (LMS), and interactive administrator dashboards built to streamline organizational processes and user analytics.</p>
+        <div class="tags">
+          <span class="tag">Custom Systems</span>
+          <span class="tag">LMS Architecture</span>
+          <span class="tag">Admin Dashboards</span>
+          <span class="tag">Prisma / Firebase</span>
+        </div>
+      </div>
+
+      <!-- Service 7 -->
+      <div class="service-card">
+        <div class="icon-box">
+          <i class="fas fa-credit-card"></i>
+        </div>
+        <h3>M-Pesa API &amp; Payment Integrations</h3>
+        <p>Integrating seamless mobile money checkout workflows into e-commerce stores and web portals using Daraja M-Pesa STK Push payment solutions with secure backend verification callbacks.</p>
+        <div class="tags">
+          <span class="tag">M-Pesa Daraja API</span>
+          <span class="tag">STK Push</span>
+          <span class="tag">Payment Gateways</span>
+          <span class="tag">Webhooks</span>
+        </div>
+      </div>
+
+      <!-- Service 8 -->
+      <div class="service-card">
+        <div class="icon-box">
+          <i class="fas fa-robot"></i>
+        </div>
+        <h3>AI Quality Auditing &amp; Data Engineering</h3>
+        <p>Evaluating AI model response quality, auditing fine-tuning datasets, writing structured evaluation guidelines, and executing digital data harvesting workflows to ensure high data integrity.</p>
+        <div class="tags">
+          <span class="tag">AI Evaluation</span>
+          <span class="tag">Data Harvesting</span>
+          <span class="tag">Dataset Auditing</span>
+          <span class="tag">Prompt Analysis</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Call To Action -->
+    <div class="cta-banner">
+      <h2>Need custom software, network setup, or security systems?</h2>
+      <p>Let's collaborate to bring your web applications, network infrastructure, or CCTV monitoring setups to life.</p>
+      <a href="contact.html" class="cta-btn">Start a Conversation</a>
+    </div>
+
+  </div>
+
+  <!-- Footer with Document Downloads -->
+  <footer>
+    <p style="margin-bottom: 10px;">Download Verified Credentials</p>
+    <a href="cv alvin.pdf" download class="download-btn" onclick="protectedDownload(event, 'cv alvin.pdf')">Download CV</a>
+    <a href="kcpe certificate .pdf" download class="download-btn" onclick="protectedDownload(event, 'kcpe certificate .pdf')">Download KCPE Certificate</a>
+    <a href="kcse certificate.pdf" download class="download-btn" onclick="protectedDownload(event, 'kcse certificate.pdf')">Download KCSE Certificate</a>
+    <a href="transcript yr1and2 (1).pdf" download class="download-btn" onclick="protectedDownload(event, 'transcript yr1and2 (1).pdf')">Download Transcript Yr 1&amp;2</a>
+    
+    <p style="font-size: 0.85rem; color: #888; margin-top: 15px;">&copy; Alvin Kimani. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function protectedDownload(event, fileUrl) {
+      event.preventDefault();
+      const userPassword = prompt("Please enter the access password to download this document:");
+
+      if (userPassword === "Alvin123#") {
+        const link = document.createElement("a");
+        link.href = fileUrl;
+        link.download = fileUrl;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } else if (userPassword !== null) {
+        alert("Incorrect password! Access denied.");
+      }
+    }
+  </script>
+
+</body>
+</html>

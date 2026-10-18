@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin | David Fashion & Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to right, #6a0dad, #9b59b6);
+      min-height: 100vh;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #ffffff;
+      color: #6a0dad;
+      border: none;
+      font-weight: bold;
+      border-radius: 10px;
+      font-size: 1rem;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #f2eafa;
+    }
+
+    .logout-btn {
+      background: #ffdddd;
+      color: #6a0dad;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Admin Panel</h1>
+
+    <label for="name">Product Name:</label>
+    <input type="text" id="name" placeholder="e.g. Elegant Dress">
+
+    <label for="price">Price:</label>
+    <input type="number" id="price" placeholder="e.g. 49.99">
+
+    <label for="size">Size:</label>
+    <input type="text" id="size" placeholder="e.g. S, M, L, XL">
+
+    <label for="description">Description:</label>
+    <textarea id="description" rows="3" placeholder="Enter a short description"></textarea>
+
+    <label for="image">Product Image:</label>
+    <input type="file" id="image" accept="image/*">
+
+    <button onclick="addProduct()">Add Product</button>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+
+  <script>
+    function addProduct() {
+      const name = document.getElementById("name").value;
+      const price = document.getElementById("price").value;
+      const size = document.getElementById("size").value;
+      const description = document.getElementById("description").value;
+      const file = document.getElementById("image").files[0];
+
+      if (!name || !price || !size || !description || !file) {
+        alert("Please fill all fields and upload an image.");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function () {
+        const product = {
+          name,
+          price,
+          size,
+          description,
+          image: reader.result
+        };
+
+        const existing = JSON.parse(localStorage.getItem("products") || "[]");
+        existing.push(product);
+        localStorage.setItem("products", JSON.stringify(existing));
+
+        alert("Product added successfully!");
+        document.querySelectorAll("input[type='text'], input[type='number'], textarea").forEach(el => el.value = "");
+        document.getElementById("image").value = "";
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function logout() {
+      const products = localStorage.getItem("products");
+      localStorage.clear();
+      if (products) {
+        localStorage.setItem("products", products);
+      }
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
