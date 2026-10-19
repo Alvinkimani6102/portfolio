@@ -26,6 +26,45 @@
       min-height: 100vh;
     }
 
+    /* Navigation Header */
+    header {
+      background: hsl(0, 1%, 45%);
+      padding: 15px 40px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #cce4ff;
+    }
+
     .container {
       max-width: 1000px;
       margin: auto;
@@ -60,16 +99,23 @@
     .about-content h1 {
       font-size: 2.5rem;
       color: #2b2b2b;
+      margin-bottom: 10px;
     }
 
     .about-content h3 {
       color: #323ec5;
       margin-bottom: 15px;
+      font-size: 1.3rem;
     }
 
     .about-content p {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       margin-bottom: 20px;
+      color: #444;
+    }
+
+    .social-icons {
+      margin-top: 15px;
     }
 
     .social-icons a {
@@ -92,35 +138,22 @@
       margin-top: auto;
     }
 
+    footer p {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+
     .download-btn {
       display: inline-block;
-      padding: 12px 25px;
+      padding: 10px 20px;
       background: #323ec5;
       color: #fff;
       text-decoration: none;
       border-radius: 8px;
       font-weight: 500;
       transition: background 0.3s ease;
-      margin-top: 10px;
-<<<<<<< HEAD
+      margin: 5px;
       cursor: pointer;
-    }
-
-    /* Navigation Header */
-    header {
-      background: hsl(0, 1%, 45%);
-      padding: 15px 40px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
-
-    nav {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-=======
->>>>>>> edbfc9a0f731739e582d379341578264d09b2b88
     }
 
     .download-btn:hover {
@@ -141,72 +174,54 @@
 </head>
 <body>
 
-<<<<<<< HEAD
-
   <header>
     <nav>
       <a href="portfolio.html" class="logo">Alvin Kimani</a>
       <ul class="nav-links">
         <li><a href="portfolio.html">Home</a></li>
-        
+        <li><a href="services.html">Services</a></li>
+        <li><a href="project list.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
-=======
->>>>>>> edbfc9a0f731739e582d379341578264d09b2b88
+
   <div class="container">
     <div class="about-image">
       <img src="IMG_20250402_152622_590.jpg" alt="Alvin Kimani" />
     </div>
     <div class="about-content">
       <h1>Hello, I'm Alvin Kimani</h1>
-<<<<<<< HEAD
       <h3>Full-Stack Web & Systems Developer</h3>
       <p>
-        I am a results-driven Software & Web Developer specializing in building scalable web applications, custom management systems, and high performance digital solutions. With expertise spanning front-end craftsmanship and robust back-end architecture, I engineer seamless end to end web systems powered by modern frameworks, Python backend logic, and scalable MongoDB database management.
+        I am a results-driven Software & Web Developer specializing in building scalable web applications, custom management systems, and high-performance digital solutions. With expertise spanning front-end craftsmanship and robust back-end architecture, I engineer seamless end-to-end web systems powered by modern frameworks, Python backend logic, and scalable MongoDB database management.
       </p>
       <p>
-        From designing intuitive UI/UX experiences to modeling complex data structures and RESTful APIs, I focus on delivering secure, reliable, and user-centric web systems. I am continuously exploring emerging technology trends and open to collaborating on innovative tech projects.
-=======
-      <h3>Web Developer & UI/UX Enthusiast</h3>
-      <p>
-        I'm a passionate and creative developer focused on building responsive, user-friendly websites that blend functionality with stunning design. My journey began with HTML and CSS, and now I enjoy crafting full-stack web applications using modern tools and frameworks.
+        From designing intuitive UI/UX experiences to modeling complex data structures and RESTful APIs, I focus on delivering secure, reliable, and user-centric web systems.
       </p>
-      <p>
-        When I'm not coding, you can find me exploring design trends, learning new tech, or collaborating on exciting projects.
->>>>>>> edbfc9a0f731739e582d379341578264d09b2b88
-      </p>
+
       <div class="social-icons">
-        <a href="https://github.com/Alvin6102" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
-<<<<<<< HEAD
-        <a href="mailto:kimanialvin2003@email.com"><i class="fas fa-envelope"></i></a>
-=======
-        <a href="kimanialvin2003@email.com"><i class="fas fa-envelope"></i></a>
->>>>>>> edbfc9a0f731739e582d379341578264d09b2b88
+        <a href="https://github.com/Alvinkimani6102" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:kimanialvin2003@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
   </div>
 
   <footer>
-    <p>Download my documents</p>
-<<<<<<< HEAD
+    <p>Download Academic & Professional Documents</p>
     <a href="cv alvin.pdf" download class="download-btn" onclick="protectedDownload(event, 'cv alvin.pdf')">Download CV</a>
-    <a href="kcpe certificate .pdf" download class="download-btn" onclick="protectedDownload(event, 'kcpe certificate .pdf')">Download kcpe certificate</a>
-    <a href="kcse certificate.pdf" download class="download-btn" onclick="protectedDownload(event, 'kcse certificate.pdf')">Download certificate</a>
-    <a href="transcript yr1and2 (1).pdf" download class="download-btn" onclick="protectedDownload(event, 'transcript yr1and2 (1).pdf')">Download transcript yr1&2</a>
+    <a href="kcpe certificate .pdf" download class="download-btn" onclick="protectedDownload(event, 'kcpe certificate .pdf')">Download KCPE Certificate</a>
+    <a href="kcse certificate.pdf" download class="download-btn" onclick="protectedDownload(event, 'kcse certificate.pdf')">Download KCSE Certificate</a>
+    <a href="transcript yr1and2 (1).pdf" download class="download-btn" onclick="protectedDownload(event, 'transcript yr1and2 (1).pdf')">Download Transcript Yr 1&2</a>
   </footer>
 
   <script>
     function protectedDownload(event, fileUrl) {
-      // Prevent default immediate download action
       event.preventDefault();
-
-      // Prompt user for password
       const userPassword = prompt("Please enter the access password to download this document:");
 
       if (userPassword === "Alvin123#") {
-        // Correct password -> trigger download dynamically
         const link = document.createElement("a");
         link.href = fileUrl;
         link.download = fileUrl;
@@ -214,7 +229,6 @@
         link.click();
         document.body.removeChild(link);
       } else if (userPassword !== null) {
-        // Password incorrect
         alert("Incorrect password! Access denied.");
       }
     }
@@ -222,14 +236,3 @@
 
 </body>
 </html>
-=======
-    <a href="cv alvin.pdf" download class="download-btn">Download CV</a>
-    <a href="kcpe certificate .pdf" download class="download-btn">Download kcpe certificate</a>
-    <a href="kcse certificate.pdf" download class="download-btn">Download certificate</a>
-    <a href="transcript yr1and2 (1).pdf" download class="download-btn">Download transcript yr1&2</a>
-    
-  </footer>
-
-</body>
-</html>
->>>>>>> edbfc9a0f731739e582d379341578264d09b2b88
